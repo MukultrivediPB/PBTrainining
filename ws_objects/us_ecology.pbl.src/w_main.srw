@@ -29,3 +29,6 @@ on w_main.destroy
 if IsValid(MenuID) then destroy(MenuID)
 end on
 
+event open;//test
+end event
+
