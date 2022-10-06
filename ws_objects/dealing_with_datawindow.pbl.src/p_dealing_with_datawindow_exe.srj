@@ -1,0 +1,17 @@
+﻿$PBExportHeader$p_dealing_with_datawindow_exe.srj
+$PBExportComments$Generated Application Executable Project
+EXE:dealing_with_datawindow.exe,pic.pbr,1,1,0,0,C:\Program Files (x86)\Appeon\Common\PowerBuilder\Runtime 22.0.0.1716
+CMP:0,0,0,3,0,0,1
+COM:Appeon
+DES:Appeon Product File
+CPY:
+PRD:PowerBuilder Enterprise Series
+PVS:1.0.0.1
+PVN:1,0,0,1
+FVS:1.0.0.1
+FVN:1,0,0,1
+MAN:2,asInvoker,1
+PBD:dealing_with_datawindow.pbl,,1
+OBJ:C:\PBTrainining\dealing_with_datawindow.pbl,w_filter,w
+OBJ:C:\PBTrainining\dealing_with_datawindow.pbl,dealing_with_datawindow,a
+OBJ:C:\PBTrainining\dealing_with_datawindow.pbl,dw_emp,d

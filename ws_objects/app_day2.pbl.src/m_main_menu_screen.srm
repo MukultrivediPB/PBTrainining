@@ -1,0 +1,145 @@
+﻿$PBExportHeader$m_main_menu_screen.srm
+forward
+global type m_main_menu_screen from menu
+end type
+type m_placeorder from menu within m_main_menu_screen
+end type
+type m_trackorder from menu within m_main_menu_screen
+end type
+type m_orderdetails from menu within m_main_menu_screen
+end type
+global type m_main_menu_screen from menu
+m_placeorder m_placeorder
+m_trackorder m_trackorder
+m_orderdetails m_orderdetails
+end type
+end forward
+
+global type m_main_menu_screen from menu
+m_placeorder m_placeorder
+m_trackorder m_trackorder
+m_orderdetails m_orderdetails
+end type
+global m_main_menu_screen m_main_menu_screen
+
+on m_main_menu_screen.create
+m_main_menu_screen=this
+call super::create
+this.text = "m_main_menu_screen"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_placeorder=create m_placeorder
+this.m_trackorder=create m_trackorder
+this.m_orderdetails=create m_orderdetails
+this.Item[UpperBound(this.Item)+1]=this.m_placeorder
+this.Item[UpperBound(this.Item)+1]=this.m_trackorder
+this.Item[UpperBound(this.Item)+1]=this.m_orderdetails
+end on
+
+on m_main_menu_screen.destroy
+call super::destroy
+destroy(this.m_placeorder)
+destroy(this.m_trackorder)
+destroy(this.m_orderdetails)
+end on
+
+type m_placeorder from menu within m_main_menu_screen
+end type
+
+on m_placeorder.create
+call super::create
+this.text = "Place Order"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_placeorder.destroy
+call super::destroy
+end on
+
+event clicked;opensheet(w_place_order,w_main,0, original!)
+end event
+
+type m_trackorder from menu within m_main_menu_screen
+end type
+
+on m_trackorder.create
+call super::create
+this.text = "Track Order"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_trackorder.destroy
+call super::destroy
+end on
+
+event clicked;opensheet(w_track,w_main,0, original!)
+end event
+
+type m_orderdetails from menu within m_main_menu_screen
+end type
+
+on m_orderdetails.create
+call super::create
+this.text = "Order Details"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_orderdetails.destroy
+call super::destroy
+end on
+

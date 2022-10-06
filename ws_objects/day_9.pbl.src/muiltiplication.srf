@@ -1,0 +1,11 @@
+﻿$PBExportHeader$muiltiplication.srf
+global type muiltiplication from function_object
+end type
+
+forward prototypes
+global function integer muiltiplication (integer a, integer b, integer c)
+end prototypes
+
+global function integer muiltiplication (integer a, integer b, integer c);return a*b*c;
+end function
+

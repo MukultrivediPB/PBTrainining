@@ -1,0 +1,937 @@
+﻿$PBExportHeader$w.srm
+forward
+global type w from menu
+end type
+type m_file from menu within w
+end type
+type m_edit from menu within w
+end type
+type m_process from menu within w
+end type
+type m_workorder from menu within m_process
+end type
+type m_workorderqoute from menu within m_workorder
+end type
+type m_trip from menu within m_workorder
+end type
+type m_workordermanagement from menu within m_workorder
+end type
+type m_workorder from menu within m_process
+m_workorderqoute m_workorderqoute
+m_trip m_trip
+m_workordermanagement m_workordermanagement
+end type
+type m_workreciept from menu within m_process
+end type
+type m_profiletracking from menu within m_workreciept
+end type
+type m_schedule from menu within m_workreciept
+end type
+type m_inboundreciept from menu within m_workreciept
+end type
+type m_fingerprint from menu within m_workreciept
+end type
+type m_containertracking from menu within m_workreciept
+end type
+type m_containerentry from menu within m_workreciept
+end type
+type m_batchtracking from menu within m_workreciept
+end type
+type m_outboundreciept from menu within m_workreciept
+end type
+type m_workreciept from menu within m_process
+m_profiletracking m_profiletracking
+m_schedule m_schedule
+m_inboundreciept m_inboundreciept
+m_fingerprint m_fingerprint
+m_containertracking m_containertracking
+m_containerentry m_containerentry
+m_batchtracking m_batchtracking
+m_outboundreciept m_outboundreciept
+end type
+type m_retail from menu within m_process
+end type
+type m_retailproductqoute from menu within m_retail
+end type
+type m_retailprocessing from menu within m_retail
+end type
+type m_retail from menu within m_process
+m_retailproductqoute m_retailproductqoute
+m_retailprocessing m_retailprocessing
+end type
+type m_financial from menu within m_process
+end type
+type m_invoice from menu within m_financial
+end type
+type m_adjustment from menu within m_financial
+end type
+type m_financial from menu within m_process
+m_invoice m_invoice
+m_adjustment m_adjustment
+end type
+type m_process from menu within w
+m_workorder m_workorder
+m_workreciept m_workreciept
+m_retail m_retail
+m_financial m_financial
+end type
+type m_view from menu within w
+end type
+type m_maintenance from menu within w
+end type
+type m_window from menu within w
+end type
+type m_help from menu within w
+end type
+global type w from menu
+m_file m_file
+m_edit m_edit
+m_process m_process
+m_view m_view
+m_maintenance m_maintenance
+m_window m_window
+m_help m_help
+end type
+end forward
+
+global type w from menu
+m_file m_file
+m_edit m_edit
+m_process m_process
+m_view m_view
+m_maintenance m_maintenance
+m_window m_window
+m_help m_help
+end type
+global w w
+
+on w.create
+w=this
+call super::create
+this.text = "w"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_file=create m_file
+this.m_edit=create m_edit
+this.m_process=create m_process
+this.m_view=create m_view
+this.m_maintenance=create m_maintenance
+this.m_window=create m_window
+this.m_help=create m_help
+this.Item[UpperBound(this.Item)+1]=this.m_file
+this.Item[UpperBound(this.Item)+1]=this.m_edit
+this.Item[UpperBound(this.Item)+1]=this.m_process
+this.Item[UpperBound(this.Item)+1]=this.m_view
+this.Item[UpperBound(this.Item)+1]=this.m_maintenance
+this.Item[UpperBound(this.Item)+1]=this.m_window
+this.Item[UpperBound(this.Item)+1]=this.m_help
+end on
+
+on w.destroy
+call super::destroy
+destroy(this.m_file)
+destroy(this.m_edit)
+destroy(this.m_process)
+destroy(this.m_view)
+destroy(this.m_maintenance)
+destroy(this.m_window)
+destroy(this.m_help)
+end on
+
+type m_file from menu within w
+end type
+
+on m_file.create
+call super::create
+this.text = "File"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_file.destroy
+call super::destroy
+end on
+
+type m_edit from menu within w
+end type
+
+on m_edit.create
+call super::create
+this.text = "Edit"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_edit.destroy
+call super::destroy
+end on
+
+type m_process from menu within w
+m_workorder m_workorder
+m_workreciept m_workreciept
+m_retail m_retail
+m_financial m_financial
+end type
+
+on m_process.create
+call super::create
+this.text = "Process"
+this.default = true
+this.mergeoption = filemenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_workorder=create m_workorder
+this.m_workreciept=create m_workreciept
+this.m_retail=create m_retail
+this.m_financial=create m_financial
+this.Item[UpperBound(this.Item)+1]=this.m_workorder
+this.Item[UpperBound(this.Item)+1]=this.m_workreciept
+this.Item[UpperBound(this.Item)+1]=this.m_retail
+this.Item[UpperBound(this.Item)+1]=this.m_financial
+end on
+
+on m_process.destroy
+call super::destroy
+destroy(this.m_workorder)
+destroy(this.m_workreciept)
+destroy(this.m_retail)
+destroy(this.m_financial)
+end on
+
+type m_workorder from menu within m_process
+m_workorderqoute m_workorderqoute
+m_trip m_trip
+m_workordermanagement m_workordermanagement
+end type
+
+on m_workorder.create
+call super::create
+this.text = "WORK ORDER"
+this.mergeoption = editmenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_workorderqoute=create m_workorderqoute
+this.m_trip=create m_trip
+this.m_workordermanagement=create m_workordermanagement
+this.Item[UpperBound(this.Item)+1]=this.m_workorderqoute
+this.Item[UpperBound(this.Item)+1]=this.m_trip
+this.Item[UpperBound(this.Item)+1]=this.m_workordermanagement
+end on
+
+on m_workorder.destroy
+call super::destroy
+destroy(this.m_workorderqoute)
+destroy(this.m_trip)
+destroy(this.m_workordermanagement)
+end on
+
+type m_workorderqoute from menu within m_workorder
+end type
+
+on m_workorderqoute.create
+call super::create
+this.text = "Work Order Qoute"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_workorderqoute.destroy
+call super::destroy
+end on
+
+type m_trip from menu within m_workorder
+end type
+
+on m_trip.create
+call super::create
+this.text = "Trip"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_trip.destroy
+call super::destroy
+end on
+
+type m_workordermanagement from menu within m_workorder
+end type
+
+on m_workordermanagement.create
+call super::create
+this.text = "Work Order Management"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_workordermanagement.destroy
+call super::destroy
+end on
+
+type m_workreciept from menu within m_process
+m_profiletracking m_profiletracking
+m_schedule m_schedule
+m_inboundreciept m_inboundreciept
+m_fingerprint m_fingerprint
+m_containertracking m_containertracking
+m_containerentry m_containerentry
+m_batchtracking m_batchtracking
+m_outboundreciept m_outboundreciept
+end type
+
+on m_workreciept.create
+call super::create
+this.text = "WORK RECIEPT"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_profiletracking=create m_profiletracking
+this.m_schedule=create m_schedule
+this.m_inboundreciept=create m_inboundreciept
+this.m_fingerprint=create m_fingerprint
+this.m_containertracking=create m_containertracking
+this.m_containerentry=create m_containerentry
+this.m_batchtracking=create m_batchtracking
+this.m_outboundreciept=create m_outboundreciept
+this.Item[UpperBound(this.Item)+1]=this.m_profiletracking
+this.Item[UpperBound(this.Item)+1]=this.m_schedule
+this.Item[UpperBound(this.Item)+1]=this.m_inboundreciept
+this.Item[UpperBound(this.Item)+1]=this.m_fingerprint
+this.Item[UpperBound(this.Item)+1]=this.m_containertracking
+this.Item[UpperBound(this.Item)+1]=this.m_containerentry
+this.Item[UpperBound(this.Item)+1]=this.m_batchtracking
+this.Item[UpperBound(this.Item)+1]=this.m_outboundreciept
+end on
+
+on m_workreciept.destroy
+call super::destroy
+destroy(this.m_profiletracking)
+destroy(this.m_schedule)
+destroy(this.m_inboundreciept)
+destroy(this.m_fingerprint)
+destroy(this.m_containertracking)
+destroy(this.m_containerentry)
+destroy(this.m_batchtracking)
+destroy(this.m_outboundreciept)
+end on
+
+type m_profiletracking from menu within m_workreciept
+end type
+
+on m_profiletracking.create
+call super::create
+this.text = "Profile Tracking"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_profiletracking.destroy
+call super::destroy
+end on
+
+type m_schedule from menu within m_workreciept
+end type
+
+on m_schedule.create
+call super::create
+this.text = "Schedule"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_schedule.destroy
+call super::destroy
+end on
+
+type m_inboundreciept from menu within m_workreciept
+end type
+
+on m_inboundreciept.create
+call super::create
+this.text = "Inbound Reciept"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_inboundreciept.destroy
+call super::destroy
+end on
+
+type m_fingerprint from menu within m_workreciept
+end type
+
+on m_fingerprint.create
+call super::create
+this.text = "FingerPrint"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_fingerprint.destroy
+call super::destroy
+end on
+
+type m_containertracking from menu within m_workreciept
+end type
+
+on m_containertracking.create
+call super::create
+this.text = "Container Tracking"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_containertracking.destroy
+call super::destroy
+end on
+
+event clicked;open(w_container_tracking)
+end event
+
+type m_containerentry from menu within m_workreciept
+end type
+
+on m_containerentry.create
+call super::create
+this.text = "Container Entry"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_containerentry.destroy
+call super::destroy
+end on
+
+type m_batchtracking from menu within m_workreciept
+end type
+
+on m_batchtracking.create
+call super::create
+this.text = "Batch Tracking"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_batchtracking.destroy
+call super::destroy
+end on
+
+type m_outboundreciept from menu within m_workreciept
+end type
+
+on m_outboundreciept.create
+call super::create
+this.text = "Outbound Reciept"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_outboundreciept.destroy
+call super::destroy
+end on
+
+type m_retail from menu within m_process
+m_retailproductqoute m_retailproductqoute
+m_retailprocessing m_retailprocessing
+end type
+
+on m_retail.create
+call super::create
+this.text = "RETAIL"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_retailproductqoute=create m_retailproductqoute
+this.m_retailprocessing=create m_retailprocessing
+this.Item[UpperBound(this.Item)+1]=this.m_retailproductqoute
+this.Item[UpperBound(this.Item)+1]=this.m_retailprocessing
+end on
+
+on m_retail.destroy
+call super::destroy
+destroy(this.m_retailproductqoute)
+destroy(this.m_retailprocessing)
+end on
+
+type m_retailproductqoute from menu within m_retail
+end type
+
+on m_retailproductqoute.create
+call super::create
+this.text = "Retail Product Qoute"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_retailproductqoute.destroy
+call super::destroy
+end on
+
+type m_retailprocessing from menu within m_retail
+end type
+
+on m_retailprocessing.create
+call super::create
+this.text = "Retail Processing"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_retailprocessing.destroy
+call super::destroy
+end on
+
+type m_financial from menu within m_process
+m_invoice m_invoice
+m_adjustment m_adjustment
+end type
+
+on m_financial.create
+call super::create
+this.text = "FINANCIAL"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_invoice=create m_invoice
+this.m_adjustment=create m_adjustment
+this.Item[UpperBound(this.Item)+1]=this.m_invoice
+this.Item[UpperBound(this.Item)+1]=this.m_adjustment
+end on
+
+on m_financial.destroy
+call super::destroy
+destroy(this.m_invoice)
+destroy(this.m_adjustment)
+end on
+
+type m_invoice from menu within m_financial
+end type
+
+on m_invoice.create
+call super::create
+this.text = "Invoice"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_invoice.destroy
+call super::destroy
+end on
+
+type m_adjustment from menu within m_financial
+end type
+
+on m_adjustment.create
+call super::create
+this.text = "Adjustment"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_adjustment.destroy
+call super::destroy
+end on
+
+type m_view from menu within w
+end type
+
+on m_view.create
+call super::create
+this.text = "View"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_view.destroy
+call super::destroy
+end on
+
+type m_maintenance from menu within w
+end type
+
+on m_maintenance.create
+call super::create
+this.text = "Maintenance"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_maintenance.destroy
+call super::destroy
+end on
+
+type m_window from menu within w
+end type
+
+on m_window.create
+call super::create
+this.text = "Window"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_window.destroy
+call super::destroy
+end on
+
+type m_help from menu within w
+end type
+
+on m_help.create
+call super::create
+this.text = "Help"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_help.destroy
+call super::destroy
+end on
+
